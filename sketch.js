@@ -2,6 +2,8 @@ let ticker = 0;
 let tickerMod = 20;
 let time;
 
+
+
 function setup() {
   createCanvas(400, 400);
   frameRate(24);
@@ -11,7 +13,8 @@ function setup() {
 function draw() {
   background(0);
 
-  fill(250, 100, 150);
+  fill(111, 15, 250);
+  strokeColor1 = color(250);
 
   ticker++;
   time = ticker/tickerMod;
@@ -20,21 +23,24 @@ function draw() {
   let locY = height/2;
   let radius = 50;
   let angle = 0;
-  let amp = 50;
-
+  let amp = 100;
 
   let cosX = amp * cos(angle + time);
   let sinY = amp * sin(angle + time);
 
-  stroke(250);
+  stroke(strokeColor1);
   strokeWeight(2);
-  circle(locX, locY, 5 * (time*10 % 5));
+  line(locX, locY, locX + cosX, locY + sinY);
 
-  stroke(250);
+  stroke(strokeColor1);
+  strokeWeight(2);
+  circle(locX, locY, cosX/3);
+
+  stroke(strokeColor1);
   strokeWeight(5);
   point(locX, locY);
 
-  stroke(250);
+  stroke(strokeColor1);
   strokeWeight(2);
   circle(locX + cosX, locY + sinY, radius);
   
